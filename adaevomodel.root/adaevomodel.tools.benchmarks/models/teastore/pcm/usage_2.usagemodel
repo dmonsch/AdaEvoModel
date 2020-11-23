@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2">
+  <usageScenario_UsageModel id="_UkkUIPnWEeqyJbgXew_vKA" entityName="Scenario0">
+    <scenarioBehaviour_UsageScenario id="_UkkUIfnWEeqyJbgXew_vKA">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_UkkUIvnWEeqyJbgXew_vKA" successor="_UkkUJPnWEeqyJbgXew_vKA"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_UkkUJPnWEeqyJbgXew_vKA" successor="_UkkUI_nWEeqyJbgXew_vKA" predecessor="_UkkUIvnWEeqyJbgXew_vKA">
+        <providedRole_EntryLevelSystemCall href="system_2.system#_voi74DWWEeqEyfgnV4BB-w"/>
+        <operationSignature__EntryLevelSystemCall href="repository_2.repository#_v-0FcDVXEeqPG_FgW3bi6Q"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="IntPMF[(0;0.0232309746)(1;0.0461949266)(2;0.0469959947)(3;0.0472630174)(4;0.0456608812)(5;0.0448598131)(6;0.046728972)(7;0.0432576769)(8;0.0427236315)(9;0.044058745)(10;0.044058745)(11;0.0403204272)(12;0.0368491322)(13;0.0387182911)(14;0.0344459279)(15;0.0384512684)(16;0.0373831776)(17;0.0368491322)(18;0.0293724967)(19;0.0293724967)(20;0.0280373832)(21;0.0296395194)(22;0.0221628838)(23;0.0213618158)(24;0.0184245661)(25;0.0170894526)(26;0.0144192256)(27;0.0122830441)(28;0.0109479306)(29;0.0082777036)(30;0.0066755674)(31;0.0050734312)(32;0.0045393858)(33;0.0018691589)(34;0.0024032043)]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="cartSize"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_UkkUI_nWEeqyJbgXew_vKA" predecessor="_UkkUJPnWEeqyJbgXew_vKA"/>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:OpenWorkload">
+      <interArrivalTime_OpenWorkload specification="2500.0"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+  <usageScenario_UsageModel id="_UkliQPnWEeqyJbgXew_vKA" entityName="Scenario1">
+    <scenarioBehaviour_UsageScenario id="_UkliQfnWEeqyJbgXew_vKA">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_UkliQvnWEeqyJbgXew_vKA" successor="_UkliRPnWEeqyJbgXew_vKA"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_UkliRPnWEeqyJbgXew_vKA" successor="_UkliQ_nWEeqyJbgXew_vKA" predecessor="_UkliQvnWEeqyJbgXew_vKA">
+        <providedRole_EntryLevelSystemCall href="system_2.system#_sKCNoDWWEeqEyfgnV4BB-w"/>
+        <operationSignature__EntryLevelSystemCall href="repository_2.repository#_i1PnIDVXEeqPG_FgW3bi6Q"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="IntPMF[(256;0.014084507)(257;0.014084507)(187;0.014084507)(188;0.014084507)(189;0.014084507)(190;0.014084507)(191;0.014084507)(192;0.014084507)(193;0.014084507)(194;0.014084507)(195;0.014084507)(196;0.014084507)(197;0.014084507)(198;0.014084507)(199;0.014084507)(200;0.014084507)(201;0.014084507)(202;0.014084507)(203;0.014084507)(204;0.014084507)(205;0.014084507)(206;0.014084507)(207;0.014084507)(208;0.014084507)(209;0.014084507)(210;0.014084507)(211;0.014084507)(212;0.014084507)(213;0.014084507)(214;0.014084507)(215;0.014084507)(216;0.014084507)(217;0.014084507)(218;0.014084507)(219;0.014084507)(220;0.014084507)(221;0.014084507)(222;0.014084507)(223;0.014084507)(224;0.014084507)(225;0.014084507)(226;0.014084507)(227;0.014084507)(228;0.014084507)(229;0.014084507)(230;0.014084507)(231;0.014084507)(232;0.014084507)(233;0.014084507)(234;0.014084507)(235;0.014084507)(236;0.014084507)(237;0.014084507)(238;0.014084507)(239;0.014084507)(240;0.014084507)(241;0.014084507)(242;0.014084507)(243;0.014084507)(244;0.014084507)(245;0.014084507)(246;0.014084507)(247;0.014084507)(248;0.014084507)(249;0.014084507)(250;0.014084507)(251;0.014084507)(252;0.014084507)(253;0.014084507)(254;0.014084507)(255;0.014084507)]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="orders"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="IntPMF[(32;0.0422535211)(33;0.014084507)(34;0.0281690141)(5;0.0281690141)(6;0.014084507)(7;0.0563380282)(8;0.0563380282)(10;0.014084507)(12;0.0422535211)(13;0.0281690141)(14;0.014084507)(15;0.014084507)(17;0.0704225352)(18;0.1126760563)(21;0.0422535211)(22;0.0985915493)(23;0.0281690141)(25;0.0845070423)(27;0.0563380282)(28;0.0563380282)(29;0.014084507)(30;0.014084507)(31;0.0704225352)]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="items"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="IntPMF[(1922;0.014084507)(2051;0.014084507)(1415;0.014084507)(1675;0.014084507)(1165;0.014084507)(781;0.014084507)(1422;0.014084507)(914;0.014084507)(1810;0.014084507)(1554;0.014084507)(1298;0.014084507)(1171;0.014084507)(1939;0.014084507)(2076;0.014084507)(1052;0.014084507)(798;0.014084507)(1440;0.014084507)(1193;0.014084507)(1321;0.014084507)(1579;0.014084507)(1709;0.0281690141)(942;0.014084507)(1967;0.014084507)(1073;0.014084507)(1458;0.014084507)(819;0.014084507)(1844;0.014084507)(1333;0.014084507)(2103;0.014084507)(1980;0.014084507)(706;0.014084507)(1218;0.014084507)(708;0.014084507)(837;0.014084507)(1350;0.014084507)(1480;0.014084507)(968;0.014084507)(1610;0.014084507)(1866;0.014084507)(716;0.014084507)(1998;0.014084507)(2126;0.014084507)(1105;0.014084507)(1235;0.014084507)(723;0.014084507)(980;0.014084507)(731;0.014084507)(1627;0.014084507)(1501;0.014084507)(862;0.014084507)(1758;0.014084507)(2016;0.014084507)(2148;0.014084507)(741;0.014084507)(998;0.014084507)(1383;0.014084507)(1896;0.014084507)(1263;0.014084507)(1136;0.014084507)(1649;0.0281690141)(754;0.014084507)(884;0.014084507)(1270;0.014084507)(1401;0.014084507)(1785;0.014084507)(2043;0.014084507)(1020;0.014084507)(1532;0.014084507)(766;0.014084507)]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="orderItems"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_UkliQ_nWEeqyJbgXew_vKA" predecessor="_UkliRPnWEeqyJbgXew_vKA"/>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:OpenWorkload">
+      <interArrivalTime_OpenWorkload specification="2681.3661971830984"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</usagemodel:UsageModel>

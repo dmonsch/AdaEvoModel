@@ -1,0 +1,16 @@
+
+dependencies {
+	api project(":adaevomodel.designtime.systemextraction")
+	
+	api project(":adaevomodel.base.shared")
+	api project(":adaevomodel.base.core")
+	
+	implementation project(":adaevomodel.base.models.scg")
+	
+	implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '3.0.0-M6'
+	
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-math3
+	implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+	
+}
+

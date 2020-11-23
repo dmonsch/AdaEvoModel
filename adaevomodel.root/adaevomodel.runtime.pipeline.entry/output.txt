@@ -1,0 +1,8 @@
+00:50:27.420 [main] DEBUG kieker.common.logging.LogFactory - SLF4J
+00:50:27.546 [main] DEBUG kieker.analysis.AnalysisController - Registered reader kieker.analysis.plugin.reader.filesystem.FSReader@6e06451e
+00:50:27.557 [main] DEBUG kieker.analysis.AnalysisController - Registered plugin dmodel.designtime.monitoring.util.MonitoringDataUtil$InternalFilter@ff5b51f
+00:50:27.598 [Thread-1] DEBUG kieker.analysis.plugin.reader.filesystem.FSDirectoryReader - Read line: $0=dmodel.designtime.monitoring.records.ResourceUtilizationRecord
+00:50:27.609 [Thread-1] DEBUG kieker.analysis.plugin.reader.filesystem.FSDirectoryReader - Read line: $1=dmodel.designtime.monitoring.records.ServiceCallRecord
+00:50:27.609 [Thread-1] DEBUG kieker.analysis.plugin.reader.filesystem.FSDirectoryReader - Read line: $2=dmodel.designtime.monitoring.records.ResponseTimeRecord
+00:50:27.609 [Thread-1] DEBUG kieker.analysis.plugin.reader.filesystem.FSDirectoryReader - Read line: $3=dmodel.designtime.monitoring.records.LoopRecord
+00:50:27.621 [Thread-1] INFO kieker.analysis.plugin.reader.filesystem.FSDirectoryReader - < Loading /Users/david/Desktop/Dynamic Approach/Implementation/git2/dModel/dmodel.root/dmodel.runtime.pipeline.pcm.system/test-resources/monitoring/kieker-20200729-112157-3327798188707-UTC--KIEKER/kieker-20200914-165700308-UTC-001.dat

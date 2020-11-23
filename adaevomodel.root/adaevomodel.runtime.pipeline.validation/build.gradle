@@ -1,0 +1,23 @@
+
+dependencies {
+	api project(":adaevomodel.base.shared")
+	api project(":adaevomodel.base.vitruv")
+	
+	implementation project(":adaevomodel.base.models.instrumentation")
+	implementation project(":adaevomodel.base.models.runtimeenvironment")
+	
+	api project(":adaevomodel.bridge.monitoring")
+	
+	/* External */
+	
+	implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+	
+	// https://mvnrepository.com/artifact/org.eclipse.core/runtime
+	implementation group: 'org.eclipse.core', name: 'runtime', version: '3.10.0-v20140318-2214'
+	
+	// https://mvnrepository.com/artifact/lpg.runtime/java
+	implementation group: 'lpg.runtime', name: 'java', version: '2.0.17-v201004271640'
+	
+	implementation 'org.antlr:antlr-runtime:3.5.2' 
+}
+

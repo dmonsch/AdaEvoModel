@@ -1,0 +1,33 @@
+---
+project:
+  rootPath: "/java/application/path"
+  sourceFolders:
+  - "src/main/java"
+models:
+  repositoryPath: "default.repository"
+  systemPath: "default.system"
+  usagePath: "default.usagemodel"
+  allocationPath: "default.allocation"
+  envPath: "default.resourceenvironment"
+  instrumentationModelPath: "default.imm"
+  correspondencePath: "default.correspondences"
+  runtimeEnvironmentPath: "default.rem"
+entry:
+  slidingWindowSize: 1000
+  slidingWindowTrigger: 180
+vfl:
+  url: "127.0.0.1"
+  port: 8080
+  simulationTime: 150000
+  measurements: 10000
+  validationShare: 0.1
+validationPredicates:
+  condition: "AND"
+  value: 0.0
+  rules:
+  - id: "kstest"
+    operator: "less"
+    value: 0.15
+  - id: "avg_rel"
+    operator: "less"
+    value: 0.2

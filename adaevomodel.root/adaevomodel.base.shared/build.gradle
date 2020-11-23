@@ -1,6 +1,6 @@
 
 dependencies {
-	api "org.pcm.headless:api:0.6.1"
+	api "org.pcm.headless:api:0.6.2"
 	
 	api group: 'org.cache2k', name: 'cache2k-core', version: '1.2.4.Final'
 

@@ -67,6 +67,7 @@ allprojects {
         	java {
             	srcDir 'src/main/java'
             	srcDir 'src-gen/java'
+            	srcDir 'src/bench/java'
         	}
         	resources {
         		srcDirs= ["src/main/resources"]

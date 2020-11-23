@@ -1,0 +1,8 @@
+
+dependencies {
+    api project(":adaevomodel.base.shared")
+    
+    implementation project(":adaevomodel.base.models.instrumentation")
+    implementation project(":adaevomodel.base.models.scg")
+    implementation project(":adaevomodel.base.models.runtimeenvironment")
+}

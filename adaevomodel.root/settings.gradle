@@ -1,3 +1,27 @@
-rootProject.name = 'dmodel.root'
+rootProject.name = 'adaevomodel.root'
 
-include "adaevomodel.base.shared"
+include "adaevomodel.base.shared",
+"adaevomodel.base.core",
+"adaevomodel.base.models.scg",
+"adaevomodel.base.models.instrumentation",
+"adaevomodel.base.models.runtimeenvironment",
+"adaevomodel.base.vitruv",
+"adaevomodel.base.evaluation",
+
+"adaevomodel.designtime.instrumentation",
+"adaevomodel.designtime.systemextraction",
+
+"adaevomodel.bridge.monitoring",
+
+"adaevomodel.runtime.pipeline",
+"adaevomodel.runtime.pipeline.entry",
+"adaevomodel.runtime.pipeline.validation",
+"adaevomodel.runtime.pipeline.instrumentation",
+"adaevomodel.runtime.pipeline.pcm",
+
+"adaevomodel.app.rest",
+"adaevomodel.app.start",
+
+"adaevomodel.tools.benchmarks",
+"adaevomodel.tools.evaluation",
+"adaevomodel.tools.experimental"

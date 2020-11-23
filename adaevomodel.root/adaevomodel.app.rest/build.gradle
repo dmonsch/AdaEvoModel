@@ -1,0 +1,14 @@
+
+dependencies {
+	api project(":adaevomodel.designtime.instrumentation")
+	api project(":adaevomodel.designtime.systemextraction")
+	api project(":adaevomodel.runtime.pipeline.entry")
+
+	api project(":adaevomodel.base.shared")
+	api project(":adaevomodel.base.core")
+	
+	implementation project(":adaevomodel.base.models.scg")
+	implementation project(":adaevomodel.base.models.runtimeenvironment")
+	implementation project(":adaevomodel.base.models.instrumentation")
+	
+}

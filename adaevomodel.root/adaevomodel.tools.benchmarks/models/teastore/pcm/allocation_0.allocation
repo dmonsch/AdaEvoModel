@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_-lK2wDWXEeqEyfgnV4BB-w">
+  <targetResourceEnvironment_Allocation href="resourceenv_1.resourceenvironment#/"/>
+  <system_Allocation href="system_1.system#_qGRmIDWWEeqEyfgnV4BB-w"/>
+  <allocationContexts_Allocation id="_AL-qYPnWEeqyJbgXew_vKA" entityName="Assembly-Persistence-1600450811 -> fc9565ea0f69">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AJ4_sPnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_AL81MPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_AL8OIPnWEeqyJbgXew_vKA" entityName="Assembly-Registry-1600450811-2 -> 86ad4f665c1a">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AJ0HMPnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_AL7AAPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_AL5K0PnWEeqyJbgXew_vKA" entityName="Assembly-Auth-1600450811 -> 86ad4f665c1a">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AJ0HMPnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_AL38sPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_AL2ukPnWEeqyJbgXew_vKA" entityName="Assembly-SlopeOneRecommender-1600450811 -> cfa852708789">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AJsLYPnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_ALydIPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ALvZ0PnWEeqyJbgXew_vKA" entityName="Assembly-Recommender-1600450811 -> cfa852708789">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AJsLYPnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_ALuLsPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ALrvcPnWEeqyJbgXew_vKA" entityName="Assembly-Registry-1600450811 -> 12a6a655a6ce">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AI120PnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_ALqhUPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ALp6QPnWEeqyJbgXew_vKA" entityName="Assembly-WebUI-1600450811 -> 12a6a655a6ce">
+    <resourceContainer_AllocationContext href="resourceenv_1.resourceenvironment#_AI120PnWEeqyJbgXew_vKA"/>
+    <assemblyContext_AllocationContext href="system_1.system#_ALosIPnWEeqyJbgXew_vKA"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

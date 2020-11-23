@@ -1,0 +1,11 @@
+plugins {
+    id "java"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    api project(":adaevomodel.base.shared")
+}

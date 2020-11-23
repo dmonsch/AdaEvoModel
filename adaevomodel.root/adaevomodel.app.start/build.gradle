@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.3.RELEASE'
+}
+
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    archiveFileName = 'AdaEvoModel-Bundled.jar'
+    mainClassName = 'adaevomodel.app.start.TriggerDModelRuntime'
+    // Exclude manifest signature files
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/LICENSE'
+}
+
+dependencies {
+	api project(":adaevomodel.designtime.systemextraction")
+
+	api project(":adaevomodel.runtime.pipeline.validation")
+	api project(":adaevomodel.runtime.pipeline.entry")
+	
+	api project(":adaevomodel.runtime.pipeline")
+	
+	api project(":adaevomodel.runtime.pipeline.pcm")
+	api project(":adaevomodel.runtime.pipeline.validation")
+	
+	api project(":adaevomodel.base.evaluation")
+	
+	api project(":adaevomodel.app.rest")
+	
+	implementation project(":adaevomodel.base.models.scg")
+	implementation project(":adaevomodel.base.models.runtimeenvironment")
+	implementation project(":adaevomodel.base.models.instrumentation")
+	
+	// https://mvnrepository.com/artifact/commons-cli/commons-cli
+	implementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
+}
+

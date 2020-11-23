@@ -1,0 +1,15 @@
+
+dependencies {
+	api project(":adaevomodel.base.shared")
+	api project(":adaevomodel.base.core")
+	api project(":adaevomodel.base.vitruv")
+	api project(":adaevomodel.base.evaluation")
+	
+	implementation project(":adaevomodel.base.models.scg")
+	implementation project(":adaevomodel.base.models.runtimeenvironment")
+	implementation project(":adaevomodel.base.models.instrumentation")
+	
+	api project(":adaevomodel.bridge.monitoring")
+	api project(":adaevomodel.runtime.pipeline.validation")
+}
+

@@ -1,0 +1,12 @@
+
+dependencies {
+	api project(":adaevomodel.base.shared")
+	api project(":adaevomodel.base.core")
+	
+	implementation project(":adaevomodel.base.models.runtimeenvironment")
+	implementation project(":adaevomodel.base.models.instrumentation")
+	
+	// Vitruv Reactions however need this dependency
+	implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+}
+

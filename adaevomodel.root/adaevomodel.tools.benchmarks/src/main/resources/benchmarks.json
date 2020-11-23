@@ -1,0 +1,9 @@
+{
+	"benchmarks" : [
+		{
+			"title" : "TeaStore Case Study - No Adaption Scenarios",
+			"dataUrl" : "https://github.com/dmonsch/AdaEvoModel/releases/download/0.1a/benchmark_teastore_new.zip",
+			"path" : "teastore_bench"
+		}
+	]
+}
