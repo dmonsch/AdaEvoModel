@@ -1,33 +1,21 @@
 dependencies {
-	api project(":adaevomodel.designtime.systemextraction")
-
-	api project(":adaevomodel.runtime.pipeline.validation")
-	api project(":adaevomodel.runtime.pipeline.entry")
 	
+	api project(":adaevomodel.base.vitruv")
+	api project(":adaevomodel.base.shared")
+	
+	api project(":adaevomodel.bridge.monitoring")
+	
+	api project(":adaevomodel.runtime.pipeline.validation")
 	api project(":adaevomodel.runtime.pipeline")
 	
-	api project(":adaevomodel.runtime.pipeline.pcm")
-	api project(":adaevomodel.runtime.pipeline.validation")
-	
-	api project(":adaevomodel.base.evaluation")
-	
-	api project(":adaevomodel.app.rest")
-	
-	implementation project(":adaevomodel.base.models.scg")
 	implementation project(":adaevomodel.base.models.runtimeenvironment")
-	implementation project(":adaevomodel.base.models.instrumentation")
+	implementation project(":adaevomodel.base.models.scg")
 	
-	// https://mvnrepository.com/artifact/commons-cli/commons-cli
-	implementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
+	implementation group: 'com.github.haifengl', name: 'smile-core', version: '2.5.3'
+	implementation group: 'com.github.haifengl', name: 'smile-data', version: '2.5.3'
 	
-	// compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.30'
-	
-	compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta7'
-	compile group: 'org.nd4j', name: 'nd4j-native-platform', version: '1.0.0-beta7'
-	compile group: 'org.deeplearning4j', name: 'deeplearning4j-nlp', version: '1.0.0-beta7'
-	
-	compile group: 'com.github.haifengl', name: 'smile-core', version: '2.5.3'
-	compile group: 'com.github.haifengl', name: 'smile-data', version: '2.5.3'
+	implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.10-1.5.4'
+	implementation group: 'org.bytedeco', name: 'openblas-platform', version: '0.3.10-1.5.4'
 	
 }
 

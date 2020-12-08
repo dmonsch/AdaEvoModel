@@ -1,9 +1,11 @@
 package adaevomodel.runtime.pipeline.data;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import dmodel.designtime.monitoring.records.PCMContextRecord;
@@ -22,9 +24,10 @@ public class SessionPartionedMonitoringData extends PartitionedMonitoringData<PC
 		records.stream().forEach(rec -> {
 			if (rec instanceof RecordWithSession) {
 				String sessionId = ((RecordWithSession) rec).getSessionId();
-				if (sessionToRecordsMapping.containsKey(sessionId)) {
-					sessionToRecordsMapping.get(sessionId).add(rec);
+				if (!sessionToRecordsMapping.containsKey(sessionId)) {
+					sessionToRecordsMapping.put(sessionId, Lists.newArrayList());
 				}
+				sessionToRecordsMapping.get(sessionId).add(rec);
 			} else {
 				this.trainingData.add(rec);
 				this.validationData.add(rec);
@@ -33,8 +36,10 @@ public class SessionPartionedMonitoringData extends PartitionedMonitoringData<PC
 
 		// 2. decide sessions -> set mapping
 		int numTrainingSessions = Math.round((float) sessionToRecordsMapping.size() * (1f - validationSplit));
-		List<List<PCMContextRecord>> sessionList = sessionToRecordsMapping.keySet().stream()
-				.map(s -> sessionToRecordsMapping.get(s)).collect(Collectors.toList());
+		List<String> randomizedKeySet = Lists.newArrayList(sessionToRecordsMapping.keySet());
+		Collections.shuffle(randomizedKeySet);
+		List<List<PCMContextRecord>> sessionList = randomizedKeySet.stream().map(s -> sessionToRecordsMapping.get(s))
+				.collect(Collectors.toList());
 		for (int i = 0; i < sessionList.size(); i++) {
 			if (i < numTrainingSessions) {
 				sessionList.get(i).forEach(r -> this.trainingData.add(r));

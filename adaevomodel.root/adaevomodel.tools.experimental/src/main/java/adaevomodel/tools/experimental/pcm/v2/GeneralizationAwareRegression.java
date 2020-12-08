@@ -130,7 +130,11 @@ public class GeneralizationAwareRegression implements IParametricRegression {
 			if (i > 0) {
 				builder.append(" + ");
 			}
+			builder.append("(");
 			builder.append(String.valueOf(model.coefficients()[i]) + " * " + labels[i]);
+		}
+		for (int i = 0; i < model.coefficients().length; i++) {
+			builder.append(")");
 		}
 		PCMRandomVariable var = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		var.setSpecification(builder.toString());
@@ -152,7 +156,7 @@ public class GeneralizationAwareRegression implements IParametricRegression {
 		PCMRandomVariable noise = noiseGenerator.generateNoise(deviations, 100);
 		PCMRandomVariable predictor = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		predictor.setSpecification(String.valueOf(avg) + " + " + noise.getSpecification());
-		predictor.setSpecification("Max(0," + predictor.getSpecification() + ")"); // -> always >= 0
+		predictor.setSpecification("Max(0.0," + predictor.getSpecification() + ")"); // -> always >= 0
 		return predictor;
 	}
 

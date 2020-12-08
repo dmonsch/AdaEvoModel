@@ -6,7 +6,7 @@ apply plugin: 'org.springframework.boot'
 
 bootJar {
     archiveFileName = 'AdaEvoModel-Bundled.jar'
-    mainClassName = 'adaevomodel.app.start.TriggerDModelRuntime'
+    mainClassName = 'adaevomodel.app.start.AdaEvoModelStarter'
     // Exclude manifest signature files
     exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/LICENSE'
 }

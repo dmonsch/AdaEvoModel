@@ -185,21 +185,6 @@ public class RuntimeSystemTransformation extends AbstractIterativePipelinePart<R
 		}
 	}
 
-	private String printTree(ServiceCallGraph scg) {
-		for (ServiceCallGraphNode node : scg.getNodes()) {
-			System.out.println(node.getSeff().getBasicComponent_ServiceEffectSpecification().getEntityName());
-			System.out.println(node.getHost().getEntityName());
-			System.out.println("--------");
-		}
-
-		for (ServiceCallGraphEdge edge : scg.getEdges()) {
-			System.out.println(edge.getFrom().getSeff().getBasicComponent_ServiceEffectSpecification().getEntityName()
-					+ " -> " + edge.getTo().getSeff().getBasicComponent_ServiceEffectSpecification().getEntityName());
-		}
-
-		return "Nodes: " + scg.getNodes().size() + "\n" + "Edges: " + scg.getEdges().size();
-	}
-
 	private ResourceContainer getMappedResourceContainer(String hostId) {
 		RuntimeResourceContainer remContainer = getBlackboard().getRemQuery().getContainerById(hostId);
 		if (remContainer != null) {

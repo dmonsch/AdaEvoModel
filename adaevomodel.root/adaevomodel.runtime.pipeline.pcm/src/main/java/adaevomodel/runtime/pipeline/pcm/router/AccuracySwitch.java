@@ -28,9 +28,8 @@ import adaevomodel.runtime.pipeline.annotation.OutputPort;
 import adaevomodel.runtime.pipeline.annotation.OutputPorts;
 import adaevomodel.runtime.pipeline.blackboard.RuntimePipelineBlackboard;
 import adaevomodel.runtime.pipeline.data.PartitionedMonitoringData;
-import adaevomodel.runtime.pipeline.pcm.repository.RepositoryDerivation;
-import adaevomodel.runtime.pipeline.pcm.repository.RepositoryStoexChanges;
-import adaevomodel.runtime.pipeline.pcm.repository.adjustment.impl.TreeScalingRepositoryDerivationAdjuster;
+import adaevomodel.runtime.pipeline.pcm.repository.IRepositoryCalibration;
+import adaevomodel.runtime.pipeline.pcm.repository.calibration.RepositoryStoexChanges;
 import adaevomodel.runtime.pipeline.pcm.usagemodel.transformation.UsageDataDerivation;
 import adaevomodel.runtime.pipeline.validation.data.ValidationData;
 import dmodel.designtime.monitoring.records.PCMContextRecord;
@@ -45,10 +44,7 @@ public class AccuracySwitch extends AbstractIterativePipelinePart<RuntimePipelin
 	private UsageDataDerivation usageDataTransformation;
 
 	@Autowired
-	private RepositoryDerivation repositoryTransformation;
-
-	@Autowired
-	private TreeScalingRepositoryDerivationAdjuster treeScalingAdjuster;
+	private IRepositoryCalibration repositoryTransformation;
 
 	// needed internals
 	private ExecutorService executorService;
@@ -105,7 +101,14 @@ public class AccuracySwitch extends AbstractIterativePipelinePart<RuntimePipelin
 		applyUsageScenarios(extractedUsageScenarios, copyForUsage.getUsageModel());
 
 		// 3. simulate the resulting models
-		simulateResultingModels(rawMonitoringData);
+		try {
+			simulateResultingModels(rawMonitoringData);
+		} catch (NoClassDefFoundError e) {
+			extractedStoexChanges.getStoexChanges().entrySet().forEach(entry -> {
+				System.out.println(entry.getKey() + " -> " + entry.getValue().getSpecification());
+			});
+			throw e;
+		}
 		validationRepository = getBlackboard().getValidationResultsQuery().get(ValidationSchedulePoint.AFTER_T_REPO);
 		validationUsage = getBlackboard().getValidationResultsQuery().get(ValidationSchedulePoint.AFTER_T_USAGE);
 
@@ -149,28 +152,13 @@ public class AccuracySwitch extends AbstractIterativePipelinePart<RuntimePipelin
 		applyUsageScenarios(extractedUsageScenarios, getBlackboard().getPcmQuery().getRaw().getUsageModel());
 
 		// 5.1 constant determination
-		constantDetermination(rawMonitoringData.getTrainingData());
+		// TODO removed
 
 		// 6. reset caches (soft) because they may be invalid now
 		getBlackboard().reset(false);
 
 		// evaluation
 		getBlackboard().getQuery().trackUsageScenarios(getBlackboard().getPcmQuery().getUsage().getScnearioCount());
-	}
-
-	private void constantDetermination(List<PCMContextRecord> data) {
-		getBlackboard().getValidationQuery().process(getBlackboard().getPcmQuery().getRaw(), data,
-				ValidationSchedulePoint.EXTRAORDINARY);
-
-		ValidationData exOrdValidationData = getBlackboard().getValidationResultsQuery()
-				.get(ValidationSchedulePoint.EXTRAORDINARY);
-
-		RepositoryStoexChanges constanstChanges = treeScalingAdjuster.getConstants(getBlackboard().getPcmQuery(),
-				exOrdValidationData, fineGrainedInstrumentedServices,
-				data.stream().filter(r -> r instanceof ServiceCallRecord).map(ServiceCallRecord.class::cast)
-						.map(sc -> sc.getServiceId()).collect(Collectors.toSet()));
-
-		constanstChanges.apply(getBlackboard().getPcmQuery().getRaw().getRepository());
 	}
 
 	private void simulateResultingModels(PartitionedMonitoringData<PCMContextRecord> rawMonitoringData) {

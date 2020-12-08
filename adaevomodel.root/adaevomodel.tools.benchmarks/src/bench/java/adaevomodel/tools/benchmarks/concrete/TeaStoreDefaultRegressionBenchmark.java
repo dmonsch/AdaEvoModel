@@ -2,9 +2,6 @@ package adaevomodel.tools.benchmarks.concrete;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -24,12 +21,11 @@ import adaevomodel.base.core.facade.IPCMQueryFacade;
 import adaevomodel.base.shared.pcm.InMemoryPCM;
 import adaevomodel.base.shared.pcm.LocalFilesystemPCM;
 import adaevomodel.bridge.monitoring.util.MonitoringDataUtil;
-import adaevomodel.runtime.pipeline.pcm.repository.RepositoryDerivation;
-import adaevomodel.runtime.pipeline.pcm.repository.adjustment.impl.TreeScalingRepositoryDerivationAdjuster;
+import adaevomodel.runtime.pipeline.pcm.repository.IRepositoryCalibration;
+import adaevomodel.runtime.pipeline.pcm.repository.calibration.impl.RepositoryCalibrationImpl;
 import adaevomodel.runtime.pipeline.validation.data.ValidationData;
 import adaevomodel.tools.benchmarks.IBenchmarkModelProvider;
 import adaevomodel.tools.benchmarks.adapter.SimplePcmQueryFacade;
-import adaevomodel.tools.benchmarks.adapter.SimpleRemAndMappingFacade;
 import adaevomodel.tools.benchmarks.config.EValidationComponent;
 import adaevomodel.tools.benchmarks.config.IBenchmarkConfiguration;
 import adaevomodel.tools.benchmarks.impl.CalibrationBenchmarkImpl;
@@ -44,22 +40,18 @@ import lombok.extern.java.Log;
 @Log
 public class TeaStoreDefaultRegressionBenchmark {
 	private ObjectMapper mapper = new ObjectMapper();
-	private TreeScalingRepositoryDerivationAdjuster adjuster;
 
 	public static void main(String[] args) {
 		new TeaStoreDefaultRegressionBenchmark().execute();
 	}
 
 	private TeaStoreDefaultRegressionBenchmark() {
-		adjuster = new TreeScalingRepositoryDerivationAdjuster();
 		ConfigurationContainer config = new ConfigurationContainer();
 		config.setVfl(new ValidationFeedbackLoopConfiguration());
 		config.getVfl().setScaling(new ScalingConfiguration());
 		config.getVfl().getScaling().setConstantDetermination(false);
 		config.getVfl().getScaling().setFeedbackBasedScaling(false);
 		config.getVfl().getScaling().setScalingEnabled(false);
-
-		adjuster.setConfiguration(config);
 	}
 
 	// execute benchmark
@@ -82,23 +74,12 @@ public class TeaStoreDefaultRegressionBenchmark {
 	}
 
 	private IBenchmarkModelProvider generateModelProvider() {
-		List<String> mappings = Lists.newArrayList();
-		try {
-			mappings = Files.readAllLines(new File("models/teastore/mapping.txt").toPath(), Charset.forName("UTF-8"));
-		} catch (IOException e) {
-		}
-		List<String> fmappings = new ArrayList<>(mappings);
-
 		return new IBenchmarkModelProvider() {
 
 			@Override
 			public InMemoryPCM provideModel(InMemoryPCM current, ValidationData validationData,
 					List<PCMContextRecord> data) {
-				SimpleRemAndMappingFacade facade = new SimpleRemAndMappingFacade(fmappings, current);
-				RepositoryDerivation derivation = new RepositoryDerivation();
-				derivation.setMappingFacade(facade);
-				derivation.setRemQuery(facade);
-				derivation.setAdjuster(adjuster);
+				IRepositoryCalibration derivation = new RepositoryCalibrationImpl();
 
 				IPCMQueryFacade pcmQuery = new SimplePcmQueryFacade(current);
 

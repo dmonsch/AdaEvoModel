@@ -114,7 +114,6 @@ public class AllocationQueryFacadeImpl implements IAllocationQueryFacade {
 		if (componentContainerQueryCache.containsKey(queryPair)) {
 			return componentContainerQueryCache.get(queryPair);
 		} else {
-			System.out.println(queryPair);
 			return Lists.newArrayList();
 		}
 	}

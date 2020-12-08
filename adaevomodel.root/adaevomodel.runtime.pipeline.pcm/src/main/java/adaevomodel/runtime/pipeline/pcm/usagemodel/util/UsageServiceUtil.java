@@ -35,6 +35,10 @@ public class UsageServiceUtil {
 
 	public static synchronized boolean isEntryCall(IRepositoryQueryFacade repository, ISystemQueryFacade system,
 			ServiceCallRecord rec) {
+		boolean a = true;
+		if (a == true) {
+			return rec.getCallerServiceExecutionId().equals("<not set>");
+		}
 		ResourceDemandingSEFF seff = repository.getServiceById(rec.getServiceId());
 
 		return system.isEntryCall(seff);
